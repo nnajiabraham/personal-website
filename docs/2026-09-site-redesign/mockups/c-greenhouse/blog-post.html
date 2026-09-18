@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt promotion is a release, not a deploy — Abraham Nnaji</title>
+  <meta name="description" content="Pins, eval gates, and letting approvers review a diff without production access.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Abraham Nnaji, home">
+        <span class="seed"><svg class="monogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 28 L11 4 L19 28 M7 18 L15 18 M22 28 L22 4 L30 28 L30 4"/></svg></span>
+        <span>Abraham Nnaji</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <span class="indicator" aria-hidden="true"></span>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog-post.html" aria-current="page">Blog</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="#">Resume</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <article class="post">
+      <header class="article-head">
+        <p class="eyebrow"><span class="pill">Article</span><span class="mono"><time datetime="2026-08-30">30 Aug 2026</time> · 9 min read</span></p>
+        <h1>Prompt promotion is a release, not a deploy</h1>
+        <p class="lede">A prompt change can alter behaviour as much as a code change, but most teams ship it like a config edit. Here is the pipeline we settled on: pinned versions, an eval gate, and approvals that do not require production access.</p>
+        <ul class="tags"><li><a class="tag" href="#">agents</a></li><li><a class="tag" href="#">evals</a></li><li><a class="tag" href="#">ci-cd</a></li></ul>
+      </header>
+
+      <div class="article-body">
+        <div class="prose">
+          <h2 id="wrong-frame">Why “deploy” is the wrong frame</h2>
+          <p>A deploy moves an artifact you have already decided to trust. A prompt edit changes what the artifact <em>does</em>. When we treated prompts as configuration, three things happened within a quarter: an approver waved through a change they could not evaluate, a rollback restored code but not the prompt, and nobody could say which prompt produced a given trace.</p>
+          <p>Treating promotion as a release fixes all three, and it costs one extra YAML file per agent.<sup id="fnref1"><a href="#fn1">1</a></sup></p>
+
+          <h2 id="pins">Pins</h2>
+          <p>Every environment references prompts by an immutable version, never by <code>latest</code>. The pin file is committed next to the agent and reviewed like code:</p>
+          <div class="codeblock">
+            <span class="lang">prompts.pins.yaml</span>
+            <button class="copy" type="button">Copy</button>
+<pre><code><span class="tok-c"># reviewed, never hand-edited in prod</span>
+<span class="tok-k">agent</span>: underwriting-classifier
+<span class="tok-k">environments</span>:
+  <span class="tok-k">staging</span>:
+    <span class="tok-k">system</span>: <span class="tok-s">"sys@v14"</span>
+    <span class="tok-k">candidate-selection</span>: <span class="tok-s">"cand@v7"</span>
+<span class="hl">  <span class="tok-k">production</span>:</span>
+<span class="hl">    <span class="tok-k">system</span>: <span class="tok-s">"sys@v13"</span>   <span class="tok-c"># promoted 2026-08-21, eval run 4412</span></span>
+    <span class="tok-k">candidate-selection</span>: <span class="tok-s">"cand@v7"</span></code></pre>
+          </div>
+          <p>The highlighted lines are the only ones a promotion PR touches. That makes the diff legible to someone who has never opened the prompt.</p>
+
+          <div class="callout callout-note">
+            <p class="callout-title">Why not a database row?</p>
+            <p>We tried it. A row has no reviewer, no diff, and no blame. Git already does all three; the pipeline just had to stop pretending prompts were special.</p>
+          </div>
+
+          <h2 id="eval-gate">The eval gate</h2>
+          <p>A promotion PR triggers the eval runner against the candidate pins. The gate compares to the current production pins on the same golden set and blocks the merge if any category regresses beyond its threshold.</p>
+          <table>
+            <thead><tr><th>Category</th><th>Metric</th><th>Threshold</th><th>Blocking</th></tr></thead>
+            <tbody>
+              <tr><td>Correctness</td><td>exact match on golden set</td><td>−1.0 pt</td><td>yes</td></tr>
+              <tr><td>Refusals</td><td>false-refusal rate</td><td>+0.5 pt</td><td>yes</td></tr>
+              <tr><td>Format</td><td>schema-valid outputs</td><td>−0.0 pt</td><td>yes</td></tr>
+              <tr><td>Latency</td><td>p95 end-to-end</td><td>+15%</td><td>warn</td></tr>
+              <tr><td>Cost</td><td>tokens per task</td><td>+10%</td><td>warn</td></tr>
+            </tbody>
+          </table>
+          <p>Two honest notes. First, thresholds are within run-to-run noise on small sets; we quote the larger-sample headline and treat single-run wins with suspicion. Second, “warn” categories were “blocking” for a month and taught us nothing except how to click override.</p>
+
+          <div class="callout callout-warn">
+            <p class="callout-title">Do not gate on a metric you cannot reproduce locally</p>
+            <p>If the eval only runs in CI, authors will stop reading it. The runner is a one-line make target and the golden set is in the repo.</p>
+          </div>
+
+          <h2 id="approvals">Approvals without production access</h2>
+          <p>The approver sees the pin diff, the eval report, and three side-by-side sample outputs. They do not see production, and they do not need to. This is the enablement framing: the gate is the thing that made it possible to say yes to more people approving.</p>
+          <blockquote>Nothing argues against the direction; three things argue against rolling out as-is.</blockquote>
+          <p>That sentence, from a review, became the template for every promotion comment. Direction and readiness are separate questions.</p>
+
+          <h2 id="talk">The talk version</h2>
+          <p>A twenty-minute internal version of this post, lightly redacted. Click to load the player; nothing from YouTube loads until you do.</p>
+          <figure>
+            <button class="yt" data-embed="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" data-title="Talk: prompt promotion as a release" aria-label="Play video">
+              <span><span class="play"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>Play · 21:04</span>
+            </button>
+            <figcaption>Recorded for an internal learning session, 2026.</figcaption>
+          </figure>
+
+          <h2 id="cost">What it cost</h2>
+          <ul>
+            <li>One pins file per agent and a 40-line schema.</li>
+            <li>An eval runner we already had, made to accept two pin sets.</li>
+            <li>Roughly a day of arguing about thresholds, which was the useful part.</li>
+          </ul>
+          <p>Reversible first step, stated migration path: if this turns out to be wrong, delete the pins file and you are back to config edits. We have not wanted to.</p>
+
+          <hr>
+          <section class="footnotes">
+            <ol>
+              <li id="fn1">Plus an eval run per promotion, which is the real cost. Budget for it. <a href="#fnref1" aria-label="Back to content">↩</a></li>
+            </ol>
+          </section>
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#wrong-frame">Why “deploy” is the wrong frame</a></li>
+            <li><a href="#pins">Pins</a></li>
+            <li><a href="#eval-gate">The eval gate</a></li>
+            <li><a href="#approvals">Approvals without production access</a></li>
+            <li><a href="#talk">The talk version</a></li>
+            <li><a href="#cost">What it cost</a></li>
+          </ol>
+        </nav>
+      </div>
+
+      <footer class="article-foot">
+        <p class="mono">Published 30 Aug 2026 · Updated 02 Sep 2026</p>
+        <nav class="pager" aria-label="Adjacent posts">
+          <a href="#"><span class="mono">← Previous</span><span>Safety rails by default in agent scaffolds</span></a>
+          <a href="#" class="next"><span class="mono">Next →</span><span>Constrained generation for regulated RAG</span></a>
+        </nav>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="footer container">
+    <p class="status"><span><span class="dot" aria-hidden="true"></span>status: <span class="cycle" data-items="building an agents platform|listening to lo-fi|flying: PPL in progress|watching the F1 midfield">building an agents platform</span></span></p>
+    <ul class="socials">
+      <li><a href="mailto:hello@nnajiabraham.com">hello@nnajiabraham.com</a></li>
+      <li><a href="https://www.github.com/nnajiabraham">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/nnajiabraham">LinkedIn</a></li>
+      <li><a href="https://www.medium.com/@nnajiabraham">Medium</a></li>
+      <li><a href="https://www.twitter.com/nnajiabraham">Twitter</a></li>
+      <li><a href="#">RSS</a></li>
+    </ul>
+    <small>© 2026 Abraham Nnaji. Set in Nunito and Lora. No tracking.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
