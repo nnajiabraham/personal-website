@@ -164,6 +164,8 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 /* Now / status line — M10 */
 .status { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-ink-2); display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); border: 1px solid var(--color-accent-ink); margin-right: var(--space-2); vertical-align: middle; }
+.status > span + span::before { content: "·"; color: var(--color-ink-3); margin-right: var(--space-3); }
+.status > span + .cycle::before { content: none; }
 .status .cycle { transition: opacity 300ms; }
 .status .cycle.is-fading { opacity: 0; }
 
@@ -224,6 +226,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .yt:hover .play { transform: scale(1.05); }
 
 /* Article layout with TOC — M11 */
+article.post { max-width: 62rem; margin-inline: auto; }
 .article-head { padding: var(--space-8) 0 var(--space-6); border-bottom: 1px solid var(--color-line); }
 .eyebrow { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-4); }
 .article-head h1 { max-width: 24ch; margin-bottom: var(--space-4); }
