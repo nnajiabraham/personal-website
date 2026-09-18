@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abraham Nnaji — Senior software engineer, developer platforms and AI agents infrastructure</title>
+  <meta name="description" content="Platform engineer. Now: agents infrastructure. Before: multi-tenant PaaS, payments, AWS.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="strip">
+    <div class="container">
+      <span><span class="dot" aria-hidden="true"></span>nnajiabraham.com</span>
+      <span>BC, Canada · UTC−7</span>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Abraham Nnaji, home">
+        <span class="plate"><svg class="monogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 28 L11 4 L19 28 M7 18 L15 18 M22 28 L22 4 L30 28 L30 4"/></svg></span>
+        <span>Abraham Nnaji</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog-post.html">Blog</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <span class="indicator" aria-hidden="true"></span>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero">
+      <div>
+        <p class="mono">Senior software engineer</p>
+        <h1><span class="stripe" aria-hidden="true"></span>Abraham Nnaji</h1>
+        <p class="role">I build developer platforms — lately, the infrastructure that lets teams ship AI agents safely.</p>
+        <p class="intro">Currently building the platform an organisation deploys its agents on: infrastructure modules, a shipping stack with eval gates, and the tracing that tells you why the bill went up. Before that: a multi-tenant PaaS for partner integrations, a live payments migration, and a lot of AWS.</p>
+        <div class="actions">
+          <a class="btn btn-ink" href="mailto:hello@nnajiabraham.com">Email me</a>
+          <a class="btn btn-ghost" href="#">Resume (PDF)</a>
+        </div>
+      </div>
+      <aside class="plate-card" aria-label="At a glance">
+        <dl class="kv">
+          <dt>Role</dt><dd>Senior software engineer</dd>
+          <dt>Now</dt><dd class="live">Agents platform infrastructure</dd>
+          <dt>Before</dt><dd>Multi-tenant PaaS · payments · AWS</dd>
+          <dt>Base</dt><dd>BC, Canada</dd>
+          <dt>Off duty</dt><dd>Lo-fi, Arduino, garden, student pilot</dd>
+        </dl>
+        <img src="../assets/headshot-bw.jpg" alt="Abraham looking to the side, black and white portrait" width="120" height="160">
+      </aside>
+    </section>
+
+    <section class="sec" aria-labelledby="writing">
+      <div class="sec-head"><span class="idx">01</span><h2 id="writing">Latest writing</h2><span class="aside">3 of 12</span></div>
+      <div class="manifest">
+        <div class="manifest-head mono"><span>Date</span><span>Title</span><span>Tags</span><span style="text-align:right">Read</span></div>
+        <a class="manifest-row" href="blog-post.html">
+          <span class="mono">2026-08-30</span>
+          <span class="title"><span>Prompt promotion is a release, not a deploy</span></span>
+          <span class="tags"><span class="tag">agents</span><span class="tag">evals</span></span>
+          <span class="time">9 min</span>
+          <p class="desc">Pins, eval gates, and letting approvers review a diff without production access.</p>
+        </a>
+        <a class="manifest-row" href="blog-post.html">
+          <span class="mono">2026-07-12</span>
+          <span class="title"><span>Safety rails by default in agent scaffolds</span></span>
+          <span class="tags"><span class="tag">agents</span><span class="tag">devx</span></span>
+          <span class="time">7 min</span>
+          <p class="desc">Why guardrail hooks belong in the starter template and not on a checklist.</p>
+        </a>
+        <a class="manifest-row" href="blog-post.html">
+          <span class="mono">2026-05-03</span>
+          <span class="title"><span>“The agent never saw request X”</span></span>
+          <span class="tags"><span class="tag">debugging</span></span>
+          <span class="time">3 min</span>
+          <p class="desc">Usually means X crashed before the log line ran. A short debugging note.</p>
+        </a>
+      </div>
+      <a class="link more" href="#">All posts →</a>
+    </section>
+
+    <section class="sec" id="projects" aria-labelledby="cleared">
+      <div class="sec-head"><span class="idx">02</span><h2 id="cleared">Cleared for Release</h2><span class="aside">NDA-filtered</span></div>
+      <p class="muted" style="max-width: var(--measure); margin-bottom: var(--space-5)">Work I can talk about. The rest is under NDA, which is a compliment to the work.</p>
+      <div class="panels">
+        <article class="panel">
+          <p class="label"><span>Platform · current</span><span>2026</span></p>
+          <h3>Shared infrastructure for an agents platform</h3>
+          <p>Versioned infrastructure-as-code module families, on-demand environments with a TTL, one repo per agent. The plan from proof-of-concept to multi-team production.</p>
+          <ul class="tags"><li><a class="tag" href="#">aws</a></li><li><a class="tag" href="#">opentofu</a></li><li><a class="tag" href="#">agents</a></li></ul>
+        </article>
+        <article class="panel">
+          <p class="label"><span>Payments</span><span>2023</span></p>
+          <h3>Live payment-processor migration to Stripe</h3>
+          <p>Built the payments service, then moved thousands of live recurring subscribers with dry-run and reconcile tooling. Final reconciliation: zero failures.</p>
+          <ul class="tags"><li><a class="tag" href="#">stripe</a></li><li><a class="tag" href="#">migrations</a></li><li><a class="tag" href="#">typescript</a></li></ul>
+        </article>
+        <article class="panel">
+          <p class="label"><span>Security · enablement</span><span>2025</span></p>
+          <h3>The scanner that turned “no” into self-serve</h3>
+          <p>Scanner, sanitizer, secret detection and a CI-gated publish path so non-engineers could use AI design tools for customer email. The control that let us say yes.</p>
+          <ul class="tags"><li><a class="tag" href="#">security</a></li><li><a class="tag" href="#">ci-cd</a></li><li><a class="tag" href="#">enablement</a></li></ul>
+        </article>
+        <article class="panel panel--accent" data-embed-host>
+          <p class="label"><span>Side project · music</span><span>Album</span></p>
+          <h3>I also make lo-fi. This is the album.</h3>
+          <div class="spotify">
+            <button class="cover" data-embed="https://open.spotify.com/embed/album/4uDZESDQhmIwc47G8Qesko?utm_source=generator&theme=0" data-title="Spotify album player" aria-label="Play the album on Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <p>Made at night, mostly. Click to load the player; the <a class="link" href="https://open.spotify.com/artist/4nea0DllTPwOWq3lWNZE8Q">artist page</a> has the rest.</p>
+          </div>
+        </article>
+      </div>
+      <a class="link more" href="#">More projects →</a>
+    </section>
+
+    <section class="sec" aria-labelledby="now">
+      <div class="sec-head"><span class="idx">03</span><h2 id="now">Now</h2></div>
+      <p class="status"><span><span class="dot" aria-hidden="true"></span>building: agents platform</span><span>listening: lo-fi, obviously</span><span>flying: PPL in progress</span><span>growing: tomatoes, badly</span></p>
+    </section>
+  </main>
+
+  <footer class="footer container" id="contact">
+    <p class="status"><span><span class="dot" aria-hidden="true"></span>status:</span> <span class="cycle" data-items="building an agents platform|listening to lo-fi|flying: PPL in progress|watching the F1 midfield">building an agents platform</span></p>
+    <div class="row">
+      <ul class="socials">
+        <li><a href="mailto:hello@nnajiabraham.com">hello@nnajiabraham.com</a></li>
+        <li><a href="https://www.github.com/nnajiabraham">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nnajiabraham">LinkedIn</a></li>
+        <li><a href="https://www.medium.com/@nnajiabraham">Medium</a></li>
+        <li><a href="https://www.twitter.com/nnajiabraham">Twitter</a></li>
+      </ul>
+      <small>© 2026 Abraham Nnaji · Red Hat Display / Text / Mono · no tracking</small>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
