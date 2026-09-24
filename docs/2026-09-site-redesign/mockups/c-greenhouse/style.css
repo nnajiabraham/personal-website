@@ -1,4 +1,4 @@
-/* Direction C — Greenhouse. Soft and organic: rounded everything, pill tags, a faint green-yellow glow, Lora body. */
+/* Direction C: Greenhouse. Soft and organic: rounded everything, pill tags, a faint green-yellow glow, Lora body. */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
@@ -68,14 +68,14 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .container { width: min(100% - 2 * var(--space-5), var(--container)); margin-inline: auto; }
 .narrow { width: min(100%, 44rem); margin-inline: auto; }
 
-/* M1 — links: marker highlight grows from the bottom */
+/* M1: links: marker highlight grows from the bottom */
 .prose a, .link { text-decoration: none; background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat 0 92% / 100% 2px; transition: background-size 200ms var(--ease), color 200ms; border-radius: 2px; }
 .prose a:hover, .link:hover { background-size: 100% 40%; color: var(--color-ink); }
 
 .skip { position: absolute; left: var(--space-4); top: -3rem; background: var(--color-ink); color: var(--color-paper); padding: var(--space-2) var(--space-4); font-family: var(--font-ui); font-weight: 700; font-size: var(--text-sm); border-radius: var(--radius-pill); transition: top 200ms var(--ease); z-index: 10; }
 .skip:focus { top: var(--space-2); }
 
-/* Nav — floating pill */
+/* Nav: floating pill */
 .nav { position: sticky; top: var(--space-3); z-index: 5; padding: 0 var(--space-4); }
 .nav-inner { width: min(100%, var(--container)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4); background: color-mix(in srgb, var(--color-paper-raised) 88%, transparent); backdrop-filter: blur(10px); border: 1px solid transparent; border-radius: var(--radius-pill); transition: border-color 200ms, box-shadow 200ms; flex-wrap: wrap; }
 .nav.is-scrolled .nav-inner { border-color: var(--color-line); box-shadow: 0 1px 0 var(--color-line); }
@@ -88,7 +88,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .nav-links { position: relative; display: flex; gap: var(--space-1); list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); font-weight: 700; font-size: var(--text-sm); }
 .nav-links a { display: block; text-decoration: none; padding: 0.45rem 0.8rem; border-radius: var(--radius-pill); color: var(--color-ink-2); transition: color 150ms, background 150ms; position: relative; z-index: 1; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-ink); }
-/* M2 — a pill slides behind the hovered link */
+/* M2: a pill slides behind the hovered link */
 .nav-links .indicator { position: absolute; top: 0; bottom: 0; left: 0; width: 0; background: var(--color-accent-soft); border-radius: var(--radius-pill); transition: transform 250ms var(--ease), width 250ms var(--ease); }
 
 /* Hero */
@@ -120,7 +120,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .sec-head h2::after { content: ""; position: absolute; left: 0; right: 30%; bottom: -0.35rem; height: 5px; border-radius: var(--radius-pill); background: var(--color-accent); }
 .sec-head .more { font-family: var(--font-ui); font-weight: 700; font-size: var(--text-sm); }
 
-/* Post cards — M3 */
+/* Post cards (M3) */
 .post-cards { display: grid; gap: var(--space-4); grid-template-columns: 1fr; list-style: none; margin: 0; padding: 0; }
 @media (min-width: 800px) { .post-cards { grid-template-columns: repeat(3, 1fr); } }
 .post-card { display: grid; gap: var(--space-3); align-content: start; padding: var(--space-5); background: var(--color-paper-raised); border: 1px solid var(--color-line); border-radius: var(--radius-lg); text-decoration: none; transition: transform 200ms var(--ease), background 200ms, border-color 200ms; }
@@ -133,7 +133,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .post-card .arrow { font-family: var(--font-ui); font-weight: 800; color: var(--color-ink-3); transition: transform 200ms var(--ease), color 200ms; justify-self: end; }
 .post-card:hover .arrow { transform: translateX(4px); color: var(--color-accent-ink); }
 
-/* Pills — M6 */
+/* Pills (M6) */
 .tags { display: flex; gap: var(--space-2); flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .tag { font-family: var(--font-ui); font-weight: 700; font-size: var(--text-xs); padding: 0.2rem 0.65rem; border-radius: var(--radius-pill); background: var(--color-paper-sunken); color: var(--color-ink-2); text-decoration: none; transition: background 150ms, color 150ms; }
 .tag:hover { background: var(--color-accent); color: var(--color-ink); }
@@ -155,14 +155,14 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .tile--music .link:hover { color: var(--color-ink); }
 .tile--music:hover::before { background: rgba(201, 245, 58, 0.14); }
 
-/* Spotify facade — M9 */
+/* Spotify facade (M9) */
 .spotify { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-4); align-items: center; }
 .cover { width: 96px; height: 96px; border: 0; border-radius: var(--radius-lg); cursor: pointer; background: var(--color-accent); color: var(--color-ink); display: grid; place-items: center; position: relative; overflow: hidden; transition: transform 150ms var(--ease), border-radius 300ms var(--ease); }
 .cover:hover { transform: scale(1.03); border-radius: 50%; }
 .cover svg { width: 28px; height: 28px; }
 [data-embed-host] iframe { width: 100%; height: 152px; border: 0; border-radius: var(--radius-lg); animation: fadein 200ms ease-out; }
 
-/* Status — M10 */
+/* Status (M10) */
 .status { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-ink-2); display: flex; gap: var(--space-2); flex-wrap: wrap; }
 .status > span { background: var(--color-paper-raised); border: 1px solid var(--color-line); padding: 0.25rem 0.75rem; border-radius: var(--radius-pill); }
 .status .cycle { transition: opacity 300ms; }
@@ -195,7 +195,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .prose sup a { background: none; }
 .footnotes { font-size: var(--text-sm); color: var(--color-ink-2); }
 
-/* Code — M7 */
+/* Code (M7) */
 .codeblock { position: relative; margin: var(--space-5) 0; }
 .codeblock pre { margin: 0; padding: 2.25rem var(--space-5) var(--space-5); background: var(--color-paper-sunken); border-radius: var(--radius-lg); overflow-x: auto; line-height: 1.55; font-size: var(--text-sm); }
 .codeblock .lang { position: absolute; top: 0.7rem; left: 1.25rem; font-family: var(--font-ui); font-weight: 700; font-size: var(--text-xs); color: var(--color-ink-3); }

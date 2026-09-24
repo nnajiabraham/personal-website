@@ -10,7 +10,7 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // M2 — sliding indicator under nav links
+  // M2: sliding indicator under nav links
   var links = document.querySelector(".nav-links");
   var indicator = links && links.querySelector(".indicator");
   if (links && indicator) {
@@ -30,7 +30,7 @@
     window.addEventListener("resize", function () { move(current); });
   }
 
-  // M7 — copy button on code blocks
+  // M7: copy button on code blocks
   document.querySelectorAll(".codeblock").forEach(function (block) {
     var btn = block.querySelector(".copy"), pre = block.querySelector("pre");
     if (!btn || !pre) return;
@@ -45,7 +45,7 @@
     });
   });
 
-  // M9 — Spotify / YouTube facades: swap in the iframe on click
+  // M9: Spotify / YouTube facades: swap in the iframe on click
   document.querySelectorAll("[data-embed]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var iframe = document.createElement("iframe");
@@ -58,7 +58,7 @@
     });
   });
 
-  // M10 — footer status line cycles its middle item
+  // M10: footer status line cycles its middle item
   var cycle = document.querySelector(".status .cycle");
   if (cycle && !reduce) {
     var items = (cycle.getAttribute("data-items") || "").split("|").filter(Boolean);
@@ -75,7 +75,7 @@
     }
   }
 
-  // M11 — TOC highlights the current section
+  // M11: TOC highlights the current section
   var toc = document.querySelector(".toc");
   if (toc && "IntersectionObserver" in window) {
     var tocLinks = Array.prototype.slice.call(toc.querySelectorAll("a"));
