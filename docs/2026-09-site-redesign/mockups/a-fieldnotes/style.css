@@ -1,4 +1,4 @@
-/* Direction A — Fieldnotes. Editorial notebook: serif body, mono marginalia, hairlines. */
+/* Direction A: Fieldnotes. Editorial notebook: serif body, mono marginalia, hairlines. */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
@@ -62,7 +62,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .mono { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-ink-3); }
 .muted { color: var(--color-ink-2); }
 
-/* M1 — link underline grows into an accent bar */
+/* M1: link underline grows into an accent bar */
 .prose a, .link {
   text-decoration: none;
   background-image: linear-gradient(var(--color-accent), var(--color-accent));
@@ -92,7 +92,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .nav-links { position: relative; display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); font-size: var(--text-sm); }
 .nav-links a { text-decoration: none; padding: var(--space-1) 0; position: relative; color: var(--color-ink-2); transition: color 150ms; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-ink); }
-/* M2 — indicator bar slides */
+/* M2: indicator bar slides */
 .nav-links .indicator { position: absolute; bottom: -2px; height: 3px; background: var(--color-accent); left: 0; width: 0; transition: transform 250ms var(--ease), width 250ms var(--ease); }
 
 /* Page grid: marginalia column on desktop */
@@ -118,7 +118,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .hero figcaption { margin-top: var(--space-2); }
 
 .actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-5); }
-/* M4 — buttons */
+/* M4: buttons */
 .btn { font-family: var(--font-ui); font-size: var(--text-sm); font-weight: 500; text-decoration: none; padding: 0.65rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--color-ink); display: inline-flex; align-items: center; gap: var(--space-2); transition: background 150ms, color 150ms, transform 100ms, border-color 150ms; }
 .btn-ink { background: var(--color-ink); color: var(--color-paper); }
 .btn-ink:hover { background: var(--color-ink-2); border-color: var(--color-ink-2); transform: translateY(-1px); }
@@ -126,7 +126,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .btn-ghost:hover { border-color: var(--color-ink); background: var(--color-paper-raised); }
 .btn:active { transform: translateY(1px); }
 
-/* Post rows — M3 */
+/* Post rows (M3) */
 .posts { list-style: none; margin: 0; padding: 0; }
 .post-row { display: grid; grid-template-columns: 1fr; gap: var(--space-1) var(--space-5); padding: var(--space-4) 0; border-top: 1px solid var(--color-line); }
 .post-row:last-child { border-bottom: 1px solid var(--color-line); }
@@ -149,11 +149,11 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .card h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
 .card p { color: var(--color-ink-2); margin-bottom: var(--space-3); }
 .tags { display: flex; gap: var(--space-2); flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
-/* M6 — tags */
+/* M6: tags */
 .tag { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.03em; padding: 0.15rem 0.45rem; border: 1px solid var(--color-line); border-radius: var(--radius-sm); color: var(--color-ink-2); text-decoration: none; transition: background 150ms, color 150ms, border-color 150ms; }
 .tag:hover { background: var(--color-accent-soft); color: var(--color-accent-ink); border-color: var(--color-accent-soft); }
 
-/* Spotify facade — M9 */
+/* Spotify facade (M9) */
 .spotify { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-4); align-items: center; }
 .cover { width: 96px; height: 96px; border: 0; border-radius: var(--radius-sm); cursor: pointer; background: var(--color-ink); color: var(--color-accent); display: grid; place-items: center; position: relative; overflow: hidden; transition: transform 150ms var(--ease); }
 .cover:hover { transform: scale(1.02); }
@@ -161,7 +161,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .cover svg { width: 28px; height: 28px; position: relative; }
 .spotify iframe { width: 100%; height: 152px; border: 0; border-radius: var(--radius-sm); animation: fadein 200ms ease-out; grid-column: 1 / -1; }
 
-/* Now / status line — M10 */
+/* Now / status line (M10) */
 .status { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-ink-2); display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); border: 1px solid var(--color-accent-ink); margin-right: var(--space-2); vertical-align: middle; }
 .status > span + span::before { content: "·"; color: var(--color-ink-3); margin-right: var(--space-3); }
@@ -197,7 +197,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .prose sup a { box-shadow: none; background: none; font-family: var(--font-ui); }
 .footnotes { font-size: var(--text-sm); color: var(--color-ink-2); }
 
-/* Code block with copy — M7 */
+/* Code block with copy (M7) */
 .codeblock { position: relative; margin: var(--space-5) 0; }
 .codeblock pre { margin: 0; padding: var(--space-4); background: var(--color-paper-sunken); border-radius: var(--radius-sm); overflow-x: auto; line-height: 1.55; font-size: var(--text-sm); }
 .codeblock .lang { position: absolute; top: 0.5rem; left: 0.75rem; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); text-transform: uppercase; letter-spacing: 0.04em; }
@@ -225,7 +225,7 @@ code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
 .yt .play { width: 56px; height: 40px; background: var(--color-ink); border-radius: var(--radius-sm); display: grid; place-items: center; color: var(--color-accent); margin-bottom: var(--space-2); transition: transform 150ms var(--ease); }
 .yt:hover .play { transform: scale(1.05); }
 
-/* Article layout with TOC — M11 */
+/* Article layout with TOC (M11) */
 article.post { max-width: 62rem; margin-inline: auto; }
 .article-head { padding: var(--space-8) 0 var(--space-6); border-bottom: 1px solid var(--color-line); }
 .eyebrow { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-4); }

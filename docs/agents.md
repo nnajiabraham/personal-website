@@ -1,4 +1,4 @@
-# docs/ — how this folder works
+# docs/: how this folder works
 
 `docs/` holds planning and design material for this repository. Nothing in here is part of the Vite build (`index.html` → `src/`), so changes under `docs/` never affect the deployed site.
 
@@ -26,9 +26,9 @@
 
 1. `mkdir docs/<yyyy-mm>-<kebab-name>` and create `README.md` and `plan.md` from the table above.
 2. Put every supporting file inside that folder. Do not add files to `docs/` root.
-3. Link the new folder from nothing else — `docs/` is discovered by listing it. Keep the folder name stable once referenced from commits or PRs.
+3. Link the new folder from nothing else; `docs/` is discovered by listing it. Keep the folder name stable once referenced from commits or PRs.
 4. When the plan is implemented, update `plan.md` → Handover with what shipped and what was cut, and mark the README status `shipped`.
 
 ## Current plans
 
-- `2026-09-site-redesign/` — redesign of nnajiabraham.com (Astro + blog system + new visual direction). Status: planning complete, awaiting implementation.
+- `2026-09-site-redesign/`: redesign of nnajiabraham.com (Astro 7 + blog system + new visual direction). Status: planning complete, direction chosen, awaiting implementation.

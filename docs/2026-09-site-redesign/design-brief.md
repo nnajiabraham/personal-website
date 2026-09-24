@@ -1,4 +1,4 @@
-# Design brief — nnajiabraham.com
+# Design brief: nnajiabraham.com
 
 Companion to `plan.md`. Everything here is a proposal for the owner to accept, edit, or reject; fixed owner decisions are marked **(fixed)**.
 
@@ -16,18 +16,29 @@ Companion to `plan.md`. Everything here is a proposal for the owner to accept, e
 - Enablement over gatekeeping: describe controls as "the thing that let us say yes".
 - Private by default: hobbies appear as facts and small photos, not as a lifestyle feed. No location more precise than "BC, Canada". No phone number.
 - No emoji in UI. Icons are line icons at 1.5px stroke.
+- **No em dashes (U+2014) in site copy, ever.** Use a comma, a period, or a colon. Where a separator is needed in titles and metadata, use a middle dot (`·`). This applies to page copy, blog posts, alt text, `<title>`s, and the docs in this folder. CI greps for the character (fixed, D16).
 
-**Tone references.** The owner admires the micro-interactions on [sarah.dev](https://sarah.dev/). Studied: one signature moment per page (hand-drawn SVG fern logo; a canvas "glitch" hero on the 404), everything else quiet — link hovers are a plain `opacity` fade over 250 ms, no parallax, no scroll-jacking. The lesson we take: **spend the motion budget on one or two owned details and keep the rest still.** The owner dislikes the typeface on pawlean.com; the pairings below avoid humanist/rounded-display faces in that register.
+**Tone references.** The owner admires the micro-interactions on [sarah.dev](https://sarah.dev/). Studied: one signature moment per page (hand-drawn SVG fern logo; a canvas "glitch" hero on the 404), everything else quiet. Link hovers are a plain `opacity` fade over 250 ms, no parallax, no scroll-jacking. The lesson we take: **spend the motion budget on one or two owned details and keep the rest still.** The owner dislikes the typeface on pawlean.com; the pairings below avoid humanist/rounded-display faces in that register.
 
-## 2. Role statement options (one line, for the hero)
+## 2. Role statement (chosen, D17)
+
+Title: **Senior Software Engineer**. Location: **BC, Canada** (fixed).
+
+**Hero statement (final):** I build developer platforms. Lately that means the infrastructure teams use to ship AI agents safely.
+
+**Alternate:** I build the platforms other engineers build on. These days that is the infrastructure for shipping AI agents safely.
+
+Both take option 2's content (developer platforms, agents infrastructure, safety) in option 5's plainer register. Neither uses an em dash.
+
+Original options, kept for reference:
 
 1. Senior software engineer building the platform other engineers ship AI agents on.
-2. I build developer platforms — lately, the infrastructure that lets teams ship AI agents safely.
+2. I build developer platforms, lately the infrastructure that lets teams ship AI agents safely.
 3. Platform engineer. Now: agents infrastructure. Before: multi-tenant PaaS, payments, AWS.
 4. Senior engineer who turns "we should be able to" into a paved road. Currently paving for AI agents.
 5. I make platforms boring in the good way: multi-tenant systems, cloud infrastructure, and now an agents platform.
 
-Recommendation: **2** for the hero (clear to a recruiter, honest to a peer). **3** works as the `<meta description>` and the résumé header.
+Option 3 still works as the `<meta description>` and the résumé header.
 
 ## 3. Projects-section name options
 
@@ -45,30 +56,30 @@ The Projects page must signal "only the things I am allowed to share" without so
 
 ## 4. Palette
 
-Warm off-white, warm near-black, monochrome warm neutrals, hints of fall colours, light/neon green-yellow as the single accent **(fixed)**. Checked against the four owner photos: the paper `#F5F0E6` sits behind a warm dark skin tone without greying it; the accent `#C9F53A` echoes the neon green of the current site and the greenery photo; the rust hint picks up the Cessna stripe; the plum is the F1 grid shadow tone. Avoid cool greys anywhere — they make warm skin look ashen in adjacent photos.
+Warm off-white, warm near-black, monochrome warm neutrals, hints of fall colours, light/neon green-yellow as the single accent **(fixed)**. Checked against the four owner photos: the paper `#F5F0E6` sits behind a warm dark skin tone without greying it; the accent `#C9F53A` echoes the neon green of the current site and the greenery photo; the rust hint picks up the Cessna stripe; the plum is the F1 grid shadow tone. Avoid cool greys anywhere; they make warm skin look ashen in adjacent photos.
 
 ### Tokens
 
 ```css
 :root {
   /* surfaces */
-  --color-paper:        #F5F0E6; /* page background — never pure white */
+  --color-paper:        #F5F0E6; /* page background, never pure white */
   --color-paper-raised: #FBF8F2; /* cards on paper */
   --color-paper-sunken: #EDE6D8; /* code blocks, table stripes, inputs */
   --color-line:         #DDD4C4; /* hairlines, borders */
 
   /* text */
-  --color-ink:          #2B2622; /* primary text — never pure black */
+  --color-ink:          #2B2622; /* primary text, never pure black */
   --color-ink-2:        #5C544C; /* secondary text */
   --color-ink-3:        #766C61; /* meta, captions */
 
   /* accent (green-yellow) */
-  --color-accent:       #C9F53A; /* highlight backgrounds, underlines, marks — never as text */
+  --color-accent:       #C9F53A; /* highlight backgrounds, underlines, marks, never as text */
   --color-accent-soft:  #EEF9C4; /* tinted backgrounds */
   --color-accent-ink:   #4F6A05; /* accent-coloured text and links */
   --color-accent-ink-2: #3F5604; /* link hover */
 
-  /* fall hints — one per page at most */
+  /* fall hints, one per page at most */
   --color-rust:         #A24A22;
   --color-rust-soft:    #F3DDD2;
   --color-ochre:        #8A6415;
@@ -100,8 +111,8 @@ Warm off-white, warm near-black, monochrome warm neutrals, hints of fall colours
 | rust `#A24A22` | paper | 5.22 | AA |
 | ochre `#8A6415` | paper | 4.72 | AA |
 | plum `#6F3E55` | paper | 7.41 | AAA |
-| accent | paper (non-text) | 1.11 | n/a — decorative only, always paired with an ink outline or text |
-| line | paper (non-text) | 1.29 | n/a — hairlines; interactive borders must also change colour, not only weight |
+| accent | paper (non-text) | 1.11 | n/a. Decorative only, always paired with an ink outline or text |
+| line | paper (non-text) | 1.29 | n/a. Hairlines; interactive borders must also change colour, not only weight |
 
 Rule: **accent is never a text colour on paper.** It is a background behind ink text, a 2–3 px underline, a mark, or a dot.
 
@@ -111,11 +122,11 @@ Constraints **(fixed)**: rounded geometric sans for UI/headings, monospace for c
 
 | # | Headings / UI | Body | Mono | Character | Used in mockup |
 | --- | --- | --- | --- | --- | --- |
-| 1 | **Rubik** (500/600) — geometric with softly rounded corners | **Source Serif 4** (400/400i) | JetBrains Mono | Editorial. Serif body gives long posts a "written" feel; Rubik keeps UI friendly. | `a-fieldnotes` |
-| 2 | **Red Hat Display** (500/700) — geometric, rounded terminals | **Red Hat Text** (400/500) | Red Hat Mono (or JetBrains Mono) | One superfamily; tight, technical, cohesive. Display and Text are metrically related so headings and body align. | `b-groundcrew` |
-| 3 | **Nunito** (600/800) — fully rounded geometric | **Lora** (400/400i) | IBM Plex Mono | Softest option. Rounded terminals everywhere; Lora is warm and reads well at 18px. | `c-greenhouse` |
+| 1 | **Rubik** (500/600), geometric with softly rounded corners | **Source Serif 4** (400/400i) | JetBrains Mono | Editorial. Serif body gives long posts a "written" feel; Rubik keeps UI friendly. | `a-fieldnotes` |
+| 2 | **Red Hat Display** (500/700), geometric, rounded terminals | **Red Hat Text** (400/500) | Red Hat Mono (or JetBrains Mono) | One superfamily; tight, technical, cohesive. Display and Text are metrically related so headings and body align. | `b-groundcrew` |
+| 3 | **Nunito** (600/800), fully rounded geometric | **Lora** (400/400i) | IBM Plex Mono | Softest option. Rounded terminals everywhere; Lora is warm and reads well at 18px. | `c-greenhouse` |
 
-All three are on Google Fonts (for mockups) and on Fontsource (for self-hosting). Recommendation: **pairing 2** — it is the only one where UI and body share a skeleton, which matters at the small sizes recruiters hit on phones. Pairing 1 is the stronger blog-reading experience if the blog becomes the main event.
+All three are on Google Fonts (for mockups) and on Fontsource (for self-hosting). **Chosen: pairing 2 (Red Hat Display / Red Hat Text / Red Hat Mono), fixed for implementation (D6a).** It is the only one where UI and body share a skeleton, which matters at the small sizes recruiters hit on phones. Pairing 1 is the stronger blog-reading experience if the blog becomes the main event.
 
 ### Scale
 
@@ -146,8 +157,8 @@ Borders: 1px `--color-line`. Shadows: none, except a single `0 1px 0 var(--color
 Principles
 
 1. Motion budget: at most **two owned moments per page**; everything else is a 150–250 ms ease-out on hover/focus.
-2. Never move layout. Animate colour, opacity, transform, underline size — never width/height of text containers.
-3. Respect `prefers-reduced-motion: reduce` — all non-essential transitions and animations off. Provide the same information statically.
+2. Never move layout. Animate colour, opacity, transform, underline size, never width/height of text containers.
+3. Respect `prefers-reduced-motion: reduce`: all non-essential transitions and animations off. Provide the same information statically.
 4. Motion should reveal information (where am I, what will happen), not decorate.
 5. No motion on page load except a single fade-in ≤ 200 ms on the hero. No scroll-jacking, no parallax.
 
@@ -162,7 +173,7 @@ The specific micro-interactions (implement all; they are cheap)
 | M5 | Hero signature moment | The owner's initials mark (an "AN" monogram drawn as a single SVG path) draws itself once on load using `stroke-dasharray` (600 ms), then stays. On hover it re-draws. This is the sarah.dev fern lesson: one owned detail. | inline SVG + CSS |
 | M6 | Tags/pills | On hover the pill background fills with `--color-accent-soft` and the text becomes `--color-accent-ink`. | CSS |
 | M7 | Code blocks | Copy button appears on hover/focus-within (opacity), says "Copied" for 1.2 s with a green dot. | 15 lines JS |
-| M8 | Photos | Grayscale at rest where the direction wants it (headshot), full colour on hover with 300 ms transition. Never on mobile (no hover) — colour by default there. | CSS `filter` |
+| M8 | Photos | Grayscale at rest where the direction wants it (headshot), full colour on hover with 300 ms transition. Never on mobile (no hover); colour by default there. | CSS `filter` |
 | M9 | Spotify facade | Static cover art with a play glyph; on click the iframe replaces it with a 200 ms crossfade. | JS |
 | M10 | Footer "status line" | A mono line like `status: building agents platform · listening: lo-fi · flying: PPL in progress` where the middle item cycles every 6 s with a 300 ms crossfade; static first item under reduced motion. | JS + CSS |
 | M11 | Table of contents (article template) | Current section link is highlighted with the accent bar as you scroll. | `IntersectionObserver` |
@@ -185,14 +196,14 @@ Rules: max one photo on Home, max three on About, zero on Blog/Projects/Resume/C
 
 ## 9. Page inventory and wireframe notes
 
-Shared: sticky top nav (name/monogram left; Home About Blog Projects Resume Contact right; collapses to a two-row wrap on mobile — no hamburger, six short links fit), footer with socials (GitHub, LinkedIn, Medium, Twitter/X, Email), status line (M10), copyright. Skip link. `<main>` landmark.
+Shared: sticky top nav (name/monogram left; Home About Blog Projects Resume Contact right; collapses to a two-row wrap on mobile, no hamburger, six short links fit), footer with socials (GitHub, LinkedIn, Medium, Twitter/X, Email), status line (M10), copyright. Skip link. `<main>` landmark.
 
 ### Home `/`
 
-1. **Hero** — monogram (M5), name "Abraham Nnaji", role statement (§2), two-line intro ("Based in BC, Canada. Currently …"), two buttons: "Email me" (ink) and "Resume" (ghost). Headshot ≤ 160 px right-aligned on desktop, above text on mobile.
-2. **Latest writing** — three most recent published posts as rows: date (mono), title, one-line description, reading time. "All posts →" link. (M3)
-3. **Cleared for Release** — three featured project cards (title, one-paragraph problem/outcome, tags), plus the **Spotify card**: album facade with "I also make lo-fi. This is the album." and artist link. (M9) "More projects →".
-4. **Now** — three short mono lines (building / listening / flying). Optional; can merge into footer status line.
+1. **Hero**: monogram (M5), name "Abraham Nnaji", role statement (§2), two-line intro ("Based in BC, Canada. Currently …"), two buttons: "Email me" (ink) and "Resume" (ghost). Headshot ≤ 160 px right-aligned on desktop, above text on mobile.
+2. **Latest writing**: three most recent published posts as rows: date (mono), title, one-line description, reading time. "All posts →" link. (M3)
+3. **Cleared for Release**: three featured project cards (title, one-paragraph problem/outcome, tags), plus the **Spotify card**: album facade with "I also make lo-fi. This is the album." and artist link. (M9) "More projects →".
+4. **Now**: three short mono lines (building / listening / flying). Optional; can merge into footer status line.
 
 ### About `/about`
 
@@ -216,7 +227,7 @@ One paragraph, a large "Download PDF" ink button, then an HTML version of the r�
 
 ### Contact `/contact`
 
-"Say hello" — one line of intent ("Recruiting, a question about a post, or a soccer take — email works best"), `mailto:hello@nnajiabraham.com` as a big link, socials as a list with handles. No form.
+"Say hello", one line of intent ("Recruiting, a question about a post, or a soccer take. Email works best."),, `mailto:hello@nnajiabraham.com` as a big link, socials as a list with handles. No form.
 
 ### 404
 
