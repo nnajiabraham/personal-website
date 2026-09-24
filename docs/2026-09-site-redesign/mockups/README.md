@@ -1,4 +1,4 @@
-# Mockups — three directions
+# Mockups: three directions
 
 Static HTML + CSS explorations of the design brief. They share the same palette tokens, copy, page structure, and micro-interaction set (M1–M12 in `design-brief.md`) so the comparison is about *voice*, not content. Fonts load from Google Fonts here **for mockups only**; the real build self-hosts.
 
@@ -20,21 +20,23 @@ Screenshots of every page at 1440 px and 390 px wide are in `screenshots/` (full
 
 ## The directions
 
-### `a-fieldnotes` — editorial notebook
+### `a-fieldnotes`: editorial notebook
 
 Rubik headings, Source Serif 4 body, JetBrains Mono. Hairline rules, a mono marginalia column with section numbers on desktop, radius 4 px only, the headshot as "fig. 1" with a caption, hobby photos floated into the margins on About. Feels like a well-kept notebook. Best long-form reading of the three; the serif body makes the blog the centre of gravity. Risk: the most "designed" of the three and the least aligned with the rounded-geometric brief (Rubik is rounded, Source Serif is not).
 
-### `b-groundcrew` — instrument panel
+### `b-groundcrew`: instrument panel
 
 Red Hat Display / Text / Mono, one superfamily. A thin mono status strip above the nav, a bordered "data plate" beside the hero with key/value facts (role, now, before, base, off duty), a manifest-style table for posts, bordered panels for projects, numbered section headers with an accent index chip, a "flight strip" metadata panel on posts. The aviation and F1 interests show up as structure, not decoration. Recruiter-friendly: the data plate answers the first five questions without scrolling.
 
-### `c-greenhouse` — soft and organic
+### `c-greenhouse`: soft and organic
 
 Nunito headings, Lora body, IBM Plex Mono. Floating pill nav, faint green-yellow and ochre radial glows in the page background, radius 16–24 px, pill tags, an organic blob-mask on the portrait that rounds to a circle on hover, hobby photos as blobs alternating sides, an inverted ink tile for the album. The warmest and friendliest; leans toward the garden/lo-fi side of the personality. Risk: the softness can read "lifestyle blog" to a recruiter, and blob masks date quickly.
 
-## Recommendation
+## Decision (2026-09-24)
 
-**`b-groundcrew`.** Reasons, in order of weight:
+**Chosen by the owner: `b-groundcrew` plus `c-greenhouse`'s dark inverted album tile (`.tile--music`).** The mockups are a starting point, not a pixel spec; see `plan.md` §7 for what is fixed and what may vary, and §6 for the variant-iteration prompt. Variants go in `mockups/variants/<name>/`.
+
+The original recommendation, for the record. Reasons, in order of weight:
 
 1. The audience priority is recruiters first. The data plate and manifest table give them role, current focus, and proof-of-work in one screen; the other two make them read prose to get there.
 2. It is the only direction that satisfies the type brief cleanly: rounded geometric sans for UI and headings *and* body, with a metrically matched mono, two families + mono, all on Fontsource.
