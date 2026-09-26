@@ -31,4 +31,4 @@
 
 ## Current plans
 
-- `2026-09-site-redesign/`: redesign of nnajiabraham.com (Astro 7 + blog system + new visual direction). Status: planning complete, direction chosen, awaiting implementation.
+- `2026-09-site-redesign/`: redesign of nnajiabraham.com (TanStack Start + MDX blog system + new visual direction). Status: planning complete, direction chosen, awaiting implementation.
